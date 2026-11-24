@@ -23,7 +23,7 @@ def normalize_words(words):
     return [
         word.strip().lower()
         for word in words
-        if word.strip()
+        if isinstance(word, str) and word.strip()
     ]
 
 # trigger words
