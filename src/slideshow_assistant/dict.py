@@ -9,11 +9,12 @@ def load_dict():
             json.dumps(
                 {"trigger_words": {"std": [], "mid": []}}, 
                 indent=4
-            )
+            ),
+            encoding="utf8"
         )
 
     ## open dict
-    with open(DICT_FILE, "r") as file:
+    with open(DICT_FILE, "r", encoding="utf8") as file:
         data = json.load(file)
 
     return data.get("trigger_words", {})
