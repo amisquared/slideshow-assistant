@@ -7,7 +7,7 @@ def load_dict():
     if not DICT_FILE.exists():
         DICT_FILE.write_text(
             json.dumps(
-                {"trigger_words": {"std": [], "mid": []}}, 
+                {"trigger_words": {"std": {}, "mid": {}}}, 
                 indent=4
             ),
             encoding="utf8"
