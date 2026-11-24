@@ -1,4 +1,5 @@
 import configparser
+import json
 from pathlib import Path
 
 from RealtimeSTT import AudioToTextRecorder
@@ -14,7 +15,7 @@ else:
     config.setdefault("SETTINGS", {})
     config["SETTINGS"].setdefault(
         "trigger_dictionary",
-        str(Path.home() / "dict.txt")
+        str(Path.home() / "dict.json")
     )
 
     with open(CONFIG_FILE, "w") as file:
@@ -24,9 +25,23 @@ else:
 DICT_FILE = Path(config["SETTINGS"]["trigger_dictionary"])
 ## check
 if not DICT_FILE.exists():
-    DICT_FILE.touch(exist_ok=True)
+    DICT_FILE.write_text(
+        json.dumps({"trigger_words": {"std": [], "mid": []}}, indent=4)
+    )
+
 ## open dict
 with open(DICT_FILE, "r") as file:
-    trigger_words = [line.strip().lower() for line in file if line.strip()]
+    data = json.load(file)
 
-print(trigger_words)
+# trigger words
+trigger_words = data.get("trigger_words", {})
+trigger_words_std = [
+    word.strip().lower()
+    for word in trigger_words.get("std", [])
+    if word.strip()
+]
+trigger_words_mid = [
+    word.strip().lower()
+    for word in trigger_words.get("mid", [])
+    if word.strip()
+]
