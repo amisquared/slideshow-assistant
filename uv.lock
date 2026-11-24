@@ -830,6 +830,9 @@ wheels = [
 faster-whisper = [
     { name = "faster-whisper" },
 ]
+silero-onnx-cpu = [
+    { name = "silero-vad", extra = ["onnx-cpu"] },
+]
 
 [[package]]
 name = "scipy"
@@ -872,6 +875,25 @@ wheels = [
 ]
 
 [[package]]
+name = "silero-vad"
+version = "6.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+    { name = "torch" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f0/05/a31b79c4a1e4939cb9212b59bb366b1d53715eb0f838163399db6cabc0e3/silero_vad-6.3.tar.gz", hash = "sha256:5f865b6e0dc352a2b8f49626bb5cb58c356d4d17e2dd3557c7c1b285af699a83", size = 25129741, upload-time = "2026-11-23T09:19:48.928Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/45/e4/5b8e7edbd7dd64c56a5f2b6794cef3479a9cf6953cd369386a94e5a45f21/silero_vad-6.3-py3-none-any.whl", hash = "sha256:4ac390372ab796e13051684f3f61bb87e2ee49ed947626285f4d55a19e6a3b90", size = 7169709, upload-time = "2026-11-23T09:19:47.07Z" },
+]
+
+[package.optional-dependencies]
+onnx-cpu = [
+    { name = "numpy" },
+    { name = "onnxruntime" },
+]
+
+[[package]]
 name = "six"
 version = "1.17.0"
 source = { registry = "https://pypi.org/simple" }
@@ -885,11 +907,15 @@ name = "slideshow-assistant"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "realtimestt", extra = ["faster-whisper"] },
+    { name = "realtimestt", extra = ["faster-whisper", "silero-onnx-cpu"] },
+    { name = "silero-vad" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "realtimestt", extras = ["faster-hisper", "faster-whisper"], specifier = ">=1.2.0" }]
+requires-dist = [
+    { name = "realtimestt", extras = ["faster-whisper", "silero-onnx-cpu"], specifier = ">=1.2.0" },
+    { name = "silero-vad", specifier = ">=6.3" },
+]
 
 [[package]]
 name = "soundfile"
