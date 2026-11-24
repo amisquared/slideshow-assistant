@@ -1,0 +1,11 @@
+# Darwin specific
+**/.DS_Store
+
+# Python
+**/__pycache__
+
+## uv?
+.venv
+
+# Developer specific
+TODO.md
