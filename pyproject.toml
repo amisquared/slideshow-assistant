@@ -1,0 +1,19 @@
+[project]
+name = "slideshow-assistant"
+version = "0.1.0"
+description = "STT app running during a presentation that lets you say trigger words for the next slide."
+readme = "README.md"
+authors = [
+    { name = "Ami Listopad", email = "amisquared@proton.me" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "realtimestt[faster-hisper,faster-whisper]>=1.2.0",
+]
+
+[project.scripts]
+slideshow-assistant = "slideshow_assistant:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
