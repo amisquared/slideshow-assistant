@@ -1,0 +1,17 @@
+
+{
+    "events": {
+        "volume_up": {
+            "action": "press",
+            "key": "volumeup"
+        },
+        "volume_down": {
+            "action": "press",
+            "key": "volumedown"
+        },
+        "save": {
+            "action": "hotkey",
+            "keys": ["ctrl", "s"]
+        }
+    }
+}

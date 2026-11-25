@@ -19,18 +19,18 @@ def load_dict():
 
     return data.get("trigger_words", {})
 
-def normalize_words(words):
-    return [
-        word.strip().lower()
-        for word in words
+def normalize_words(words: dict) -> dict[str, str]:
+    return {
+        word.strip().lower(): event
+        for word, event in words.items()
         if isinstance(word, str) and word.strip()
-    ]
+    }
 
 # trigger words
 trigger_words = load_dict()
 trigger_words_std = normalize_words(
-    trigger_words.get("std", [])
+    trigger_words.get("std", {})
 )
 trigger_words_mid = normalize_words(
-    trigger_words.get("mid", [])
+    trigger_words.get("mid", {})
 )
