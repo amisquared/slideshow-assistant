@@ -1,7 +1,9 @@
 from RealtimeSTT import AudioToTextRecorder
+
 from .detection import detect_tr
-from .dict import trigger_words_std, trigger_words_mid
+from .dict import trigger_words_mid, trigger_words_std
 from .events.handler import exec_event
+
 
 def handle_text(text: str):
     result = detect_tr(text, trigger_words_std, trigger_words_mid)
