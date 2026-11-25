@@ -10,13 +10,20 @@ _event_cache: dict | None = None
 
 def load_events(refresh: bool = False):
     global _event_cache
+    events: dict = {}
     if _event_cache is not None and not refresh:
         return _event_cache
-    if not EVENT_DEF_FILE.exists():
-        _event_cache = {}
-    else:
-        with open(EVENT_DEF_FILE, "r", encoding="utf-8") as file:
-            _event_cache = json.load(file).get("events", {})
+    if EVENT_DEF_FILE.exists():
+        try:
+            with open(EVENT_DEF_FILE, "r", encoding="utf-8") as file:
+                events_raw = json.load(file)
+            if isinstance(events_raw, dict):
+                events = events_raw.get("events", {})
+                if not isinstance(events, dict):
+                    events = {}
+        except (json.JSONDecodeError, OSError) as exception:
+            print(f"could not read {EVENT_DEF_FILE} due to {exception}")
+    _event_cache = events
     return _event_cache
 
 def exec_custom_event(event):
