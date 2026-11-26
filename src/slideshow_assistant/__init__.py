@@ -1,6 +1,9 @@
 import os
+import sys
 
-os.environ.setdefault("PYSTRAY_BACKEND", "appindicator") # NEEEDED!!!
+if "linux" in sys.platform.lower():
+    os.environ.setdefault("PYSTRAY_BACKEND", "appindicator") # NEEEDED!!!
+
 import threading
 
 import pystray
