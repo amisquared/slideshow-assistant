@@ -38,6 +38,7 @@ Events are the matching action with every trigger word in your dictionary. The p
 slideshow-assistant uses [pyautogui](https://pyautogui.readthedocs.io/en/latest/), so it should be the same behavior. Only supported events are `press` and `hotkey`.
 
 5. Point your files
+
 On launch, there should be a config file at `~/ssast.cfg`. This is where you configure your dictionary files for both events and triggers.
 ```cfg
 [SETTINGS]
