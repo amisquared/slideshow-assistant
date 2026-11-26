@@ -2,13 +2,22 @@ import pyautogui
 
 
 def previous_slide():
-    pyautogui.press("left")
+    try:
+        pyautogui.press("left")
+    except pyautogui.FailSafeException:
+        pass
 
 def next_slide():
-    pyautogui.press("right")
+    try:
+        pyautogui.press("right")
+    except pyautogui.FailSafeException:
+        pass
 
 def stop_slide():
-    pyautogui.press("esc")
+    try:
+        pyautogui.press("esc")
+    except pyautogui.FailSafeException:
+        pass
 
 EVENT_HANDLERS = {
     "previous_slide": previous_slide,
