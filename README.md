@@ -9,6 +9,7 @@ STT app running during a presentation that lets you say trigger words for the ne
 - Python 3.14
 - [uv](https://docs.astral.sh/uv/)
 - A microphone
+- `libayatana-appindicator-gtk3` and `python3-gobject`
 
 ## Usage
 
@@ -66,6 +67,8 @@ This list is not exhaustive, but:
 
 ### Platforms
 This has been written for Linux in mind, but cross-platform support *should be* there, just untested.
+#### Wayland
+Target windows need to be ran under XWayland, as pyautogui doesn't support Wayland.
 
 ## AI Usage
 
