@@ -14,6 +14,10 @@ def load_config():
             "trigger_dictionary",
             str(Path.home() / "dict.json")
         )
+        config["SETTINGS"].setdefault(
+            "event_dictionary",
+            str(Path.home() / "ssast_events.json")
+        )
 
         with open(CONFIG_FILE, "w") as file:
             config.write(file)
@@ -22,3 +26,4 @@ def load_config():
 
 config = load_config()
 DICT_FILE = Path(config["SETTINGS"]["trigger_dictionary"])
+EVENT_FILE = Path(config["SETTINGS"]["event_dictionary"])
