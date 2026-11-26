@@ -1,0 +1,10 @@
+{
+    "trigger_words": {
+        "std": {
+		    "next slide": "next_slide",
+            "last slide": "previous_slide",
+            "end of slide": "stop_slide"
+	    },
+        "mid": {}
+    }
+}
