@@ -17,7 +17,7 @@ def draw_icon():
     img = Image.new('RGB', (64, 64), 'black')
     return img
 
-def on_quit(icon):
+def on_quit(icon, item):
     worker.stop()
     icon.stop()
 
@@ -25,7 +25,7 @@ def on_restart(icon, item):
     threading.Thread(target=worker.restart, daemon=True).start()
 
 menu = pystray.Menu(
-    pystray.MenuItem("Status: Listening", lambda: icon, enabled=False),
+    pystray.MenuItem("Status: Listening", lambda icon, item: None, enabled=False),
     pystray.MenuItem("Restart", on_restart),
     pystray.MenuItem("Quit", on_quit)
 )
