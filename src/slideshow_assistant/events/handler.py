@@ -1,6 +1,7 @@
 import json
 
 import pyautogui
+pyautogui.FAILSAFE = False
 
 from ..config import EVENT_FILE as EVENT_DEF_FILE
 from .input import EVENT_HANDLERS as DEFAULT_EVENT_HANDLERS
