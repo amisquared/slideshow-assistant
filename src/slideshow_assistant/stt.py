@@ -61,4 +61,6 @@ class STTWorker:
 
     def restart(self):
         self.stop()
+        from .events.handler import load_events
+        load_events(refresh=True)
         self.start()
