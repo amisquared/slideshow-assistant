@@ -57,6 +57,12 @@ This list is not exhaustive, but:
 ### Platforms
 This has been written for Linux in mind, but cross-platform support *should be* there, just untested.
 
+## AI Usage
+
+AI was used during development. Commits have been marked with an `Assisted-by:` tag to disclose if AI was ever used. 
+
+This project isn't pure AI slop :3c
+
 ## Brief thanks to...
 
 the unlisted people giving me voice samples to test! <3
