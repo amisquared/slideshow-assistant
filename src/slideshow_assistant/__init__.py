@@ -9,7 +9,7 @@ import threading
 import pystray
 from PIL import Image
 
-from slideshow_assistant.stt import STTWorker
+from .stt import STTWorker
 
 worker = STTWorker()
 
