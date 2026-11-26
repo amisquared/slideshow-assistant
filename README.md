@@ -46,6 +46,8 @@ trigger_dictionary = /path/to/dict.json
 event_dictionary = /path/to/ssast_events.json
 ```
 
+There should be a tray icon, where you can restart, for when you change the config or something else.
+
 ## Limitations
 ### Speech to Text (STT)
 Since this is STT, where computers are the ones figuring out your speech, there are quite a number of limitations.
