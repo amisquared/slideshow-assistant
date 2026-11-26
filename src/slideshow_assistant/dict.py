@@ -25,12 +25,3 @@ def normalize_words(words: dict) -> dict[str, str]:
         for word, event in words.items()
         if isinstance(word, str) and word.strip()
     }
-
-# trigger words
-trigger_words = load_dict()
-trigger_words_std = normalize_words(
-    trigger_words.get("std", {})
-)
-trigger_words_mid = normalize_words(
-    trigger_words.get("mid", {})
-)
