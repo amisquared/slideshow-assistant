@@ -15,6 +15,8 @@ STT app running during a presentation that lets you say trigger words for the ne
 
 To use slideshow-assistant:
 
+- Path 1
+
 1. Clone the repo
 ```bash
 $ git clone https://github.com/amisquared/slideshow-assistant
@@ -22,6 +24,13 @@ $ git clone https://github.com/amisquared/slideshow-assistant
 2. Install dependencies via uv
 ```bash
 $ uv sync
+```
+
+- Path 2
+
+1. Install via uv
+```bash
+$ uv tool install slideshow-assistant
 ```
 
 3. Configure your trigger words.
